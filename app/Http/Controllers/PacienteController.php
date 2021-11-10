@@ -38,14 +38,14 @@ class PacienteController extends Controller
     }
     public function show(Request $request)
     {
-        $paciente = Paciente::findOrFail($request->idpaciente);
+        $paciente = Paciente::findOrFail($request->id_paciente);
         return $paciente;
         //Esta función devolverá los datos de una tarea que hayamos seleccionado para cargar el formulario con sus datos
     }
 
     public function update(Request $request)
     {
-        $paciente = Paciente::findOrFail($request->idpaciente);
+        $paciente = Paciente::findOrFail($request->id_paciente);
 
         $paciente->ape_nom = $request->ape_nom;
         $paciente->dni = $request->dni;
@@ -60,7 +60,7 @@ class PacienteController extends Controller
 
     public function destroy(Request $request)
     {
-        $paciente = Paciente::destroy($request->idpaciente);
+        $paciente = Paciente::destroy($request->id_paciente);
         return $paciente;
         //Esta función obtendra el idpaciente de la tarea que hayamos seleccionado y la borrará de nuestra BD
     }

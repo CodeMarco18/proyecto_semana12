@@ -19,7 +19,7 @@ class Usuario extends Model
      //use SoftDeletes;
 
      public $table = 'usuario';
-     protected $primaryKey= 'id_usuario ';
+     protected $primaryKey= 'id_usuario';
      public $timestamps =false;
  
      
@@ -42,7 +42,7 @@ class Usuario extends Model
       * @var array
       */
      protected $casts = [
-         'id_usuario ' => 'integer',
+         'id_usuario' => 'integer',
          'ape_nom' => 'string',
          'usuario' => 'string'
      ];

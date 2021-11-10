@@ -113,7 +113,7 @@
                 tarea que queremos modificar*/
                 let me = this;
                 axios.put('/cita/actualizar',{
-                    'idcita':this.update,
+                    'id_cita':this.update,
                     'id_paciente':this.id_paciente,
                     'fecha_cita':this.fecha_cita,
                     'id_doctor':this.id_doctor,
@@ -129,9 +129,9 @@
                 });
             },
             loadFieldsUpdate(data){ //Esta función rellena los campos y la variable update, con la tarea que queremos modificar
-                this.update = data.idcita
+                this.update = data.id_cita
                 let me =this;
-                let url = '/cita/buscar?idcita='+this.update;
+                let url = '/cita/buscar?id_cita='+this.update;
                 axios.get(url).then(function (response) {
                     me.id_paciente= response.data.id_paciente;
                     me.fecha_cita= response.data.fecha_cita;
@@ -147,7 +147,7 @@
             },
             deleteTask(data){//Esta nos abrirá un alert de javascript y si aceptamos borrará la tarea que hemos elegidcitao
                 let me =this;
-                let task_id = data.idcita
+                let task_id = data.id_cita
                 if (confirm('¿Seguro que deseas borrar esta tarea?')) {
                     axios.delete('/cita/borrar/'+task_id
                     ).then(function (response) {

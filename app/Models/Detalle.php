@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @package App\Models
  * @version October 21, 2021, 2:21 am UTC
  *
- * @property string $detallecita
+ * @property string $id_detallecita
  * @property string $idcita
  */
 class Detalle extends Model
@@ -32,8 +32,8 @@ class Detalle extends Model
  
  
      public $fillable = [
-         'detallecita',
-         'idcita'
+         'id_detallecita',
+         'id_cita'
      ];
  
      /**
@@ -42,8 +42,7 @@ class Detalle extends Model
       * @var array
       */
      protected $casts = [
-         'iddetalle' => 'integer',
-         'detallecita' => 'string',
+         'id_detallecita' => 'string',
          'idcita' => 'string'
      ];
  
@@ -53,7 +52,7 @@ class Detalle extends Model
       * @var array
       */
      public static $rules = [
-         'detallecita' => 'nullable|string|max:45',
-         'idcita' => 'nullable|string|max:45'
+         'id_detallecita' => 'nullable|string|max:45',
+         'id_cita' => 'nullable|string|max:45'
      ];
 }

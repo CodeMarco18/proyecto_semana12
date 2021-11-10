@@ -2023,7 +2023,7 @@ __webpack_require__.r(__webpack_exports__);
       tarea que queremos modificar*/
       var me = this;
       axios.put('/cita/actualizar', {
-        'idcita': this.update,
+        'id_cita': this.update,
         'id_paciente': this.id_paciente,
         'fecha_cita': this.fecha_cita,
         'id_doctor': this.id_doctor
@@ -2037,9 +2037,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     loadFieldsUpdate: function loadFieldsUpdate(data) {
       //Esta función rellena los campos y la variable update, con la tarea que queremos modificar
-      this.update = data.idcita;
+      this.update = data.id_cita;
       var me = this;
-      var url = '/cita/buscar?idcita=' + this.update;
+      var url = '/cita/buscar?id_cita=' + this.update;
       axios.get(url).then(function (response) {
         me.id_paciente = response.data.id_paciente;
         me.fecha_cita = response.data.fecha_cita;
@@ -2052,7 +2052,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteTask: function deleteTask(data) {
       //Esta nos abrirá un alert de javascript y si aceptamos borrará la tarea que hemos elegidcitao
       var me = this;
-      var task_id = data.idcita;
+      var task_id = data.id_cita;
 
       if (confirm('¿Seguro que deseas borrar esta tarea?')) {
         axios["delete"]('/cita/borrar/' + task_id).then(function (response) {
@@ -2183,7 +2183,7 @@ __webpack_require__.r(__webpack_exports__);
       tarea que queremos modificar*/
       var me = this;
       axios.put('/detalle/actualizar', {
-        'iddetalle': this.update,
+        'id_detallecita': this.update,
         'id_cita': this.id_cita
       }).then(function (response) {
         me.getTasks(); //llamamos al metodo getTask(); para que refresque nuestro array y muestro los nuevos datos
@@ -2195,11 +2195,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     loadFieldsUpdate: function loadFieldsUpdate(data) {
       //Esta función rellena los campos y la variable update, con la tarea que queremos modificar
-      this.update = data.iddetalle;
+      this.update = data.id_detallecita;
       var me = this;
-      var url = '/detalle/buscar?iddetalle=' + this.update;
+      var url = '/detalle/buscar?id_detallecita=' + this.update;
       axios.get(url).then(function (response) {
-        me.detallecita = response.data.detallecita;
+        me.id_detallecita = response.data.id_detallecita;
         me.id_cita = response.data.id_cita;
       })["catch"](function (error) {
         // handle error
@@ -2207,9 +2207,9 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deleteTask: function deleteTask(data) {
-      //Esta nos abrirá un alert de javascript y si aceptamos borrará la tarea que hemos elegiddetalleo
+      //Esta nos abrirá un alert de javascript y si aceptamos borrará la tarea que hemos elegid_id_detallecitao
       var me = this;
-      var task_id = data.iddetalle;
+      var task_id = data.id_detallecita;
 
       if (confirm('¿Seguro que deseas borrar esta tarea?')) {
         axios["delete"]('/detalle/borrar/' + task_id).then(function (response) {

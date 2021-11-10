@@ -93,7 +93,7 @@
                 tarea que queremos modificar*/
                 let me = this;
                 axios.put('/detalle/actualizar',{
-                    'iddetalle':this.update,
+                    'id_detallecita':this.update,
                     'id_cita':this.id_cita,
                    
                     
@@ -107,11 +107,11 @@
                 });
             },
             loadFieldsUpdate(data){ //Esta función rellena los campos y la variable update, con la tarea que queremos modificar
-                this.update = data.iddetalle
+                this.update = data.id_detallecita
                 let me =this;
-                let url = '/detalle/buscar?iddetalle='+this.update;
+                let url = '/detalle/buscar?id_detallecita='+this.update;
                 axios.get(url).then(function (response) {
-                    me.detallecita= response.data.detallecita;
+                    me.id_detallecita= response.data.id_detallecita;
                     me.id_cita= response.data.id_cita;
     
                   
@@ -122,9 +122,9 @@
                     console.log(error);
                 }); 
             },
-            deleteTask(data){//Esta nos abrirá un alert de javascript y si aceptamos borrará la tarea que hemos elegiddetalleo
+            deleteTask(data){//Esta nos abrirá un alert de javascript y si aceptamos borrará la tarea que hemos elegid_id_detallecitao
                 let me =this;
-                let task_id = data.iddetalle
+                let task_id = data.id_detallecita
                 if (confirm('¿Seguro que deseas borrar esta tarea?')) {
                     axios.delete('/detalle/borrar/'+task_id
                     ).then(function (response) {
